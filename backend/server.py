@@ -337,6 +337,23 @@ async def analyze_url(request: URLAnalysisRequest, background_tasks: BackgroundT
     """Analyze URL for phishing indicators"""
     start_time = datetime.now(timezone.utc)
     
+    # Input validation
+    if not request.url or not request.url.strip():
+        raise HTTPException(status_code=422, detail="URL is required and cannot be empty")
+    
+    url = request.url.strip()
+    
+    # Basic URL format validation
+    if not url.startswith(('http://', 'https://')):
+        raise HTTPException(status_code=422, detail="URL must start with http:// or https://")
+    
+    try:
+        parsed = urlparse(url)
+        if not parsed.netloc:
+            raise HTTPException(status_code=422, detail="Invalid URL format")
+    except Exception:
+        raise HTTPException(status_code=422, detail="Invalid URL format")
+    
     try:
         # Sandbox analysis
         sandbox_data = await analyzer.analyze_url_safely(request.url)
