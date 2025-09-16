@@ -1013,9 +1013,9 @@ async def get_statistics(user_id: Optional[str] = None):
     })
     
     # Security stats
-    total_incidents = await db.incidents.count_documents()
+    total_incidents = await db.incidents.count_documents({})
     open_incidents = await db.incidents.count_documents({"status": "open"})
-    quarantined_items = await db.quarantine.count_documents()
+    quarantined_items = await db.quarantine.count_documents({})
     blacklist_entries = await db.blacklist.count_documents({"is_active": True})
     
     return {
