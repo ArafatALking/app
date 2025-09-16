@@ -17,7 +17,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { 
   AlertTriangle, Shield, Activity, BarChart3, Zap, Globe, Clock, CheckCircle, 
   Mail, FileText, Settings, Ban, Archive, Users, Eye, Trash2, Upload,
-  Security, AlertCircle, ShieldAlert, Database, Bell, MessageSquare,
+  ShieldCheck, AlertCircle, ShieldAlert, Database, Bell, MessageSquare,
   XCircle, CheckCircle2, Pause, Play
 } from "lucide-react";
 
