@@ -363,7 +363,7 @@ const Dashboard = () => {
               تحليل الإيميل
             </TabsTrigger>
             <TabsTrigger value="security-dashboard" className="flex items-center gap-2">
-              <Security className="h-4 w-4" />
+              <ShieldCheck className="h-4 w-4" />
               لوحة الأمان
             </TabsTrigger>
             <TabsTrigger value="incidents" className="flex items-center gap-2">
